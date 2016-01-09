@@ -19,10 +19,10 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C6D827D0E2ED39B9DF95C269 /* Pods_SFSlideOutMenu_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E42C5667C75D5381B8C36A0 /* Pods_SFSlideOutMenu_Example.framework */; };
 		D84444A1D9C1F3B7655E3B95 /* Pods_SFSlideOutMenu_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07718CF9F168E0B411B417B6 /* Pods_SFSlideOutMenu_Tests.framework */; };
+		EEEA2A541C41C21F0041F6DF /* SFSlideOutMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEEA2A531C41C21F0041F6DF /* SFSlideOutMenuTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,13 +58,13 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6E42C5667C75D5381B8C36A0 /* Pods_SFSlideOutMenu_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFSlideOutMenu_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B8D5939E8ED5992CF44DB8 /* SFSlideOutMenu.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SFSlideOutMenu.podspec; path = ../SFSlideOutMenu.podspec; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A73ED5825BF878B13E95EFE1 /* Pods-SFSlideOutMenu_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFSlideOutMenu_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SFSlideOutMenu_Tests/Pods-SFSlideOutMenu_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EDADB8FCCD17F42435BA8D73 /* Pods-SFSlideOutMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFSlideOutMenu_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SFSlideOutMenu_Example/Pods-SFSlideOutMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
+		EEEA2A531C41C21F0041F6DF /* SFSlideOutMenuTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSlideOutMenuTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +167,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				EEEA2A531C41C21F0041F6DF /* SFSlideOutMenuTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -400,7 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				EEEA2A541C41C21F0041F6DF /* SFSlideOutMenuTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,7 +515,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SFSlideOutMenu/SFSlideOutMenu-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/**\"";
 				INFOPLIST_FILE = "SFSlideOutMenu/SFSlideOutMenu-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -531,7 +533,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SFSlideOutMenu/SFSlideOutMenu-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/**\"";
 				INFOPLIST_FILE = "SFSlideOutMenu/SFSlideOutMenu-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,7 +549,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -556,6 +559,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SFSlideOutMenu_Example.app/SFSlideOutMenu_Example";
@@ -569,13 +573,13 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SFSlideOutMenu_Example.app/SFSlideOutMenu_Example";

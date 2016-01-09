@@ -1,0 +1,6 @@
+framework module Pods_SFSlideOutMenu_Tests {
+  umbrella header "Pods-SFSlideOutMenu_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

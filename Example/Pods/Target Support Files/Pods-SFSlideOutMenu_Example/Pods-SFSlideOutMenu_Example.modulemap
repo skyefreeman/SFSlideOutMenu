@@ -1,0 +1,6 @@
+framework module Pods_SFSlideOutMenu_Example {
+  umbrella header "Pods-SFSlideOutMenu_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

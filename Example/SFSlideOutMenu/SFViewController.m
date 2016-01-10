@@ -20,12 +20,12 @@
     [super viewDidLoad];
     
     self.menu = [[SFSlideOutMenu alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, self.view.frame.size.height)];
-    self.menu.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
     self.menu.backgroundColor = [UIColor redColor];
-    [self.menu makeKeyAndVisible];
-
-    [self.menu addSubview:[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.menu.frame.size.width/2, 20)]];
-    [self.menu addSubview:[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.menu.frame.size.width/2, 20)]];
+    
+    self.menu.buttonTitles = @[@"One",@"Two"];
+    self.menu.buttonSpacing = 2.0;
+    self.menu.buttonWidth = self.menu.frame.size.width - 10;
+    self.menu.buttonCornerRadius = self.menu.buttonHeight/2;
 }
 
 @end

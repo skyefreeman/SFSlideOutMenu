@@ -18,7 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yaO-Kq-eBQ"/>
+                    <navigationItem key="navigationItem" id="yaO-Kq-eBQ">
+                        <barButtonItem key="leftBarButtonItem" title="toggle" id="N4M-0J-SEq">
+                            <connections>
+                                <action selector="togglePressed:" destination="whP-gf-Uak" id="bgc-Lt-SS5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

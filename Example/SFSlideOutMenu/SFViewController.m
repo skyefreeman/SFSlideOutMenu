@@ -19,13 +19,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.menu = [[SFSlideOutMenu alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, 0, self.view.frame.size.width/2, self.view.frame.size.height)];
-    self.menu.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor redColor];
     
-    self.menu.buttonTitles = @[@"One",@"Two"];
-    self.menu.buttonSpacing = 2.0;
+    self.menu = [[SFSlideOutMenu alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width/3, self.view.frame.size.height)];
+    
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+    blurView.frame = self.menu.bounds;
+    [self.menu addSubview:blurView];
+    
+    self.menu.buttonTitles = @[@"top stories", @"latest stories", @"saved stories"];
+    self.menu.buttonSpacing = 4.0;
     self.menu.buttonWidth = self.menu.frame.size.width - 10;
     self.menu.buttonCornerRadius = self.menu.buttonHeight/2;
+    self.menu.buttonBackgroundColor = [UIColor colorWithWhite:0.000 alpha:0.300];
+    self.menu.buttonTitleColor = [UIColor colorWithWhite:1.000 alpha:0.700];
+    self.menu.buttonFont = [UIFont systemFontOfSize:15];
+}
+
+- (IBAction)togglePressed:(id)sender {
+    [self.menu toggleActive];
 }
 
 @end

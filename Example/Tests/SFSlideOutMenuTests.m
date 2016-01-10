@@ -19,19 +19,20 @@ __block UIButton *secondButton;
 beforeEach(^{
     menu = [[SFSlideOutMenu alloc] initWithFrame:CGRectMake(0, 0, 50, 200)];
     [menu setButtonTitles:@[@"one",@"two"]];
-    firstButton = menu.subviews[0];
-    secondButton = menu.subviews[1];
+    firstButton = menu.container.subviews[0];
+    secondButton = menu.container.subviews[1];
+
 });
 
 describe(@"buttonSpacing", ^{
-    
     it(@"defaults to 0.0", ^{
         expect(menu.buttonSpacing).to.equal(0.0);
     });
     
     it(@"lays out subviews with spaces when set", ^{
         menu.buttonSpacing = 10.0;
-        expect(menu.subviews.firstObject.frame.origin.y).to.equal(10.0);
+        [menu layoutIfNeeded];
+        expect(firstButton.frame.origin.y).to.equal(10.0);
     });
 });
 
@@ -42,7 +43,8 @@ describe(@"buttonHeight", ^{
     
     it(@"lays out subviews when set", ^{
         [menu setButtonHeight:15.0];
-        expect(menu.subviews.firstObject.frame.size.height).to.equal(15.0);
+        [menu layoutIfNeeded];
+        expect(firstButton.frame.size.height).to.equal(15.0);
     });
 });
 
@@ -53,7 +55,7 @@ describe(@"buttonTitles", ^{
     });
     
     it(@"creates buttons when set", ^{
-        expect(menu.subviews.firstObject).to.beKindOf([UIButton class]);
+        expect(firstButton).notTo.beNil;
     });
     
     it(@"adds button titles when set", ^{
@@ -69,7 +71,8 @@ describe(@"buttonWidth", ^{
     
     it(@"lays out button subviews with new width", ^{
         menu.buttonWidth = 30;
-        expect(menu.subviews.firstObject.frame.size.width).to.equal(30.0);
+        [menu layoutIfNeeded];
+        expect(firstButton.frame.size.width).to.equal(30.0);
     });
 });
 
@@ -80,7 +83,8 @@ describe(@"buttonCornerRadius", ^{
     
     it(@"lays out button subviews with new corner radius when set", ^{
         menu.buttonCornerRadius = 3.0;
-        expect(menu.subviews.firstObject.layer.cornerRadius).to.equal(3.0);
+        [menu layoutIfNeeded];
+        expect(firstButton.layer.cornerRadius).to.equal(3.0);
     });
 });
 
@@ -91,7 +95,8 @@ describe(@"buttonBackgroundColor", ^{
     
     it(@"lays out button subviews with new colors when set", ^{
         menu.buttonBackgroundColor = [UIColor redColor];
-        expect(menu.subviews.firstObject.backgroundColor).to.equal([UIColor redColor]);
+        [menu layoutIfNeeded];
+        expect(firstButton.backgroundColor).to.equal([UIColor redColor]);
     });
 });
 
@@ -102,6 +107,7 @@ describe(@"buttonTitleColor", ^{
     
     it(@"lays out button subviews with new title colors when set", ^{
         menu.buttonTitleColor = [UIColor redColor];
+        [menu layoutIfNeeded];
         expect([firstButton titleColorForState:UIControlStateNormal]).to.equal([UIColor redColor]);
     });
 });
@@ -117,6 +123,7 @@ describe(@"buttonFont", ^{
     
     it(@"lays out button subviews with new font when set", ^{
         menu.buttonFont = [UIFont systemFontOfSize:20];
+        [menu layoutIfNeeded];
         expect(firstButton.titleLabel.font).to.equal([UIFont systemFontOfSize:20]);
     });
 });
@@ -126,6 +133,48 @@ describe(@"animationDuration", ^{
         expect(menu.animationDuration).to.equal(0.5);
     });
     
+});
+
+describe(@"headerView", ^{
+    __block UIView *header;
+
+    beforeEach(^{
+        header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    });
+    
+    it(@"defaults to nil", ^{
+        expect(menu.headerView).to.beNil;
+    });
+
+    it(@"adds a view to the window when set", ^{
+        menu.headerView = header;
+        expect(menu.headerView.frame.origin).to.equal(CGPointZero);
+        expect(menu.headerView.superview).to.equal(menu.container);
+    });
+    
+    it(@"lays out buttons below header", ^{
+        menu.headerView = header;
+        [menu layoutIfNeeded];
+        expect(firstButton.frame.origin.y).to.equal(menu.headerView.frame.size.height);
+    });
+});
+
+describe(@"footerView", ^{
+    it(@"defaults to nil", ^{
+        expect(menu.footerView).to.beNil;
+    });
+    
+    it(@"adds a view to the bottom of the the view", ^{
+        menu.footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+        expect(menu.footerView.frame.origin.y).to.equal(menu.frame.size.height - menu.footerView.frame.size.height);
+        expect(menu.footerView.superview).to.equal(menu.container);
+    });
+});
+
+describe(@"style", ^{
+    it(@"defaults to 0", ^{
+        expect(menu.style).to.equal(SFSlideOutMenuStyleRight);
+    });
 });
 SpecEnd
 
@@ -137,7 +186,8 @@ describe(@"Each button", ^{
         [menu setButtonTitles:@[@"Button"]];
         [menu setButtonWidth:5];
         
-        UIButton *button = menu.subviews.firstObject;
+        UIButton *button = menu.container.subviews.firstObject;
+        [menu layoutIfNeeded];
         expect(button.frame.origin.x).to.equal(2.5);
     });
 });
@@ -155,7 +205,7 @@ describe(@"toggleActive", ^{
     
     it(@"moves left by the width of the menu when toggled as 'inactive' ", ^{
         [menu toggleActive];
-        expect(menu.frame.origin.x).after(menu.animationDuration).to.equal(0);
+        expect(menu.container.frame.origin.x).after(menu.animationDuration).to.equal(0);
     });
     
     it(@"moves right by the width of the menu when toggled as 'active' ", ^{

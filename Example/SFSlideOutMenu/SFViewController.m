@@ -40,10 +40,10 @@
     self.menu.buttonFont = [UIFont systemFontOfSize:15];
     
     self.menu.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.menu.frame.size.width, 65)];
-    self.menu.headerView.backgroundColor = [UIColor clearColor];
+    self.menu.headerView.backgroundColor = [UIColor redColor];
     
-    self.menu.footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.menu.frame.size.width, self.menu.frame.size.width)];
-    self.menu.footerView.backgroundColor = [UIColor clearColor];
+    self.menu.footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.menu.container.frame.size.width, self.menu.container.frame.size.width)];
+    self.menu.footerView.backgroundColor = [UIColor redColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

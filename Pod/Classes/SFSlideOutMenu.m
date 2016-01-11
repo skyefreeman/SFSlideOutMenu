@@ -15,9 +15,8 @@
 @implementation SFSlideOutMenu
 
 - (instancetype)initWithParentViewController:(UIViewController*)parentViewController style:(SFSlideOutMenuStyle)style {
-    self = [super initWithFrame:parentViewController.view.bounds];
+    self = [super initWithFrame:CGRectMake(0, 0, parentViewController.view.frame.size.width, parentViewController.view.frame.size.height)];
     if (!self) return nil;
-    
     
     _style = style;
     

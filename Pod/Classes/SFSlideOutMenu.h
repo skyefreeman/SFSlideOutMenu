@@ -58,5 +58,10 @@ typedef NS_ENUM(NSInteger,SFSlideOutMenuStyle) {
 /** @brief Toggles the menu with a completion block  */
 - (void)toggleActiveWithCompletion:(void (^)())completion;
 
+// TODO:
+// Scroll view
+// different sides
+// background color dim
+
 @end
 

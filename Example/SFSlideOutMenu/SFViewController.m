@@ -23,7 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.menu = [[SFSlideOutMenu alloc] initWithParentViewController:self style:SFSlideOutMenuStyleRight];
+    self.menu = [[SFSlideOutMenu alloc] initWithStyle:SFSlideOutMenuStyleRight];
     self.menu.delegate = self;
     
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];

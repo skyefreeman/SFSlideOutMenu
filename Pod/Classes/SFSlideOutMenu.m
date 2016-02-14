@@ -9,19 +9,18 @@
 #import "SFSlideOutMenu.h"
 
 @interface SFSlideOutMenu()
-@property (nonatomic, getter=isActive) BOOL active;
 @end
 
 @implementation SFSlideOutMenu
 
-- (instancetype)initWithParentViewController:(UIViewController*)parentViewController style:(SFSlideOutMenuStyle)style {
-    self = [super initWithFrame:CGRectMake(0, 0, parentViewController.view.frame.size.width, parentViewController.view.frame.size.height)];
+- (instancetype)initWithStyle:(SFSlideOutMenuStyle)style {
+    self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
     if (!self) return nil;
     
     _style = style;
     
-    CGRect parentFrame = parentViewController.view.bounds;
-    [self _commonInitWithMenuFrame:CGRectMake(parentFrame.size.width, 0, parentFrame.size.width/3, self.frame.size.height)];
+    CGRect screenFrame = [[UIScreen mainScreen] bounds];
+    [self _commonInitWithMenuFrame:CGRectMake(screenFrame.size.width, 0, screenFrame.size.width/10 * 4, self.frame.size.height)];
     
     return self;
 }

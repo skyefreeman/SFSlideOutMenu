@@ -22,13 +22,15 @@ typedef NS_ENUM(NSInteger,SFSlideOutMenuStyle) {
 @interface SFSlideOutMenu : UIWindow
 
 /** @brief Custom initialization */
-- (instancetype)initWithParentViewController:(UIViewController*)parentViewController
-                                       style:(SFSlideOutMenuStyle)style;
+- (instancetype)initWithStyle:(SFSlideOutMenuStyle)style;
 
 @property (nonatomic, weak) id <SFSlideOutMenuDelegate> delegate;
 
 /** @brief The NSString values for each UIButton subviews  */
 @property (nonatomic, copy) NSArray *buttonTitles;
+
+/** @brief Boolean value indicating whether the menu is active or not */
+@property (nonatomic, getter=isActive) BOOL active;
 
 /** @brief The duration of the menu toggle animation  */
 @property (nonatomic) CGFloat animationDuration;

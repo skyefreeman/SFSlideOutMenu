@@ -10,7 +10,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Author
 
-Skye, skyefreeman@icloud.com
+Skye Freeman, skyefreeman@icloud.com
 
 ## License
 
